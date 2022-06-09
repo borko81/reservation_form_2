@@ -16,12 +16,8 @@
 </head>
 <body>
 
-<?php
-    
-?>
 
-
-<div class="container">
+<div class="glob_container">
     <h3>Форма за резервация</h3>
     <form action="result.php" method='POST'>
 
@@ -84,12 +80,12 @@
 
                 <br />
                 <div class="form-group">
-                    <input type="number" name="random_num" class="input_in_one_line">
+                    <input type="number" name="random_num" class="input_in_one_line" readonly value="<?php echo rand(); ?>">
                     <input type="number" name="human_number" placeholder="Въведете числото от ляво за проверка" class="input_in_one_line">
                 </div>
                 <br />
                 <div class="form-group">
-                    <input type="submit" value="Направи резерация" class="btn btn-primary my-text-transform form-control" name="submit_all_form">
+                    <input type="submit" value="Направи резерация" class="btn btn-primary my-text-transform form-control" name="submit_me">
                 </div>
  
             </div>
@@ -130,6 +126,18 @@
 <!--Modal ends here--->
 
 <script type="text/javascript">
+
+    $('form').submit(function() {
+        if (parseInt($('input[name="random_num"]').val()) == parseInt($('input[name="human_number"]').val())) {
+            return true;
+        }
+        else{
+            alert('Въведете кода за проверка.');
+            return false;
+        }
+    });
+
+
     let income_input = document.getElementById("income_date");
         let outcome_input = document.getElementById("outcome_date");
         
@@ -153,6 +161,7 @@
         $wave.hide();
         $loader.hide();
     });
+
 </script>
 </body>
 </html>

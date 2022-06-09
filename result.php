@@ -17,7 +17,7 @@
         
     <?php
 
-        // var_dump($_POST);
+        //var_dump($_POST);
 
         function clear_input($input) {
             return trim(htmlspecialchars($input));
@@ -54,6 +54,8 @@
             }
             echo "<p class='common_information' data-toggle='modal' data-target='#myModal'>Общи условия</p>";
             echo "<input type='submit' value='Направи резервация' class='form-control'>";
+        } else {
+          echo "<input type='button' class='btn btn-success' value='Некоректни данни опитаите отново или се обадете на рецепция' onClick='window.history.back()' >";
         }
 
     ?>
