@@ -57,12 +57,13 @@
                         $price = round($result_php['roomPrices'][$i]["price"], 2);
                         $room_tipe = $result_php['roomPrices'][$i]["roomType"]["name"];
                         $room_id =  $result_php['roomPrices'][$i]["roomType"]["id"];
+                        $name_and_id = $room_id . ":" . $room_tipe;
     
                         echo "<div class='card' style='width: 18rem;'>";
                         echo     "<div class='card-body'>";
                         echo         "<h5 class='card-title'>$room_tipe</h5>";
                         echo         "<h6 class='card-subtitle mb-2 text-muted'>Сума  $price лв</h6>";
-                        echo         "<a href='#' class='card-link' id=$room_id onclick='showModal(this.id)'>Галерия</a>&nbsp;&nbsp;&nbsp;Избор:&nbsp;<input type='radio' name='room_choice_radio' value=$room_id' onclick='when_radio_is_clicked();'>";
+                        echo         "<a href='#' class='card-link' id=$room_id onclick='showModal(this.id)'>Галерия</a>&nbsp;&nbsp;&nbsp;Избор:&nbsp;<input type='radio' name='room_choice_radio' value=$name_and_id' onclick='when_radio_is_clicked();'>";
                         echo     "</div>";
                         echo "</div>";
                     }

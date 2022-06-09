@@ -15,9 +15,15 @@
     <title>Reservations form</title>
 </head>
 <body>
+
+<?php
+    
+?>
+
+
 <div class="container">
     <h3>Форма за резервация</h3>
-    <form action="">
+    <form action="result.php" method='POST'>
 
     <!-- Checking for free room about date to income and going -->
         <div class="form-group">
@@ -58,30 +64,57 @@
                 <h5>Данни за госта</h5>
                 <div class="form-group">
                     <label for="person_name">Име и Фамилия</label>
-                    <input type="text" class="form-control" id="person_name">
+                    <input type="text" class="form-control" id="person_name" name="person_name" required>
                 </div>
 
                 <div class="form-group">
                     <label for="person_tel">Телефон</label>
-                    <input type="text" class="form-control" id="person_tel">
+                    <input type="text" class="form-control" id="person_tel" name='person_tel' required>
                 </div>
 
                 <div class="form-group">
                     <label for="person_email">Email</label>
-                    <input type="text" class="form-control" id="person_email">
+                    <input type="text" class="form-control" id="person_email" name='person_email' required>
                 </div>
 
                 <div class="form-group">
                     <label for="person_note">Забележка</label>
-                    <textarea id="person_note" class="form-control"></textarea>
+                    <textarea id="person_note" class="form-control" name='person_note'></textarea>
                 </div>
 
+                <br />
+                <div class="form-group">
+                    <input type="number" name="random_num" class="input_in_one_line">
+                    <input type="number" name="human_number" placeholder="Въведете числото от ляво за проверка" class="input_in_one_line">
+                </div>
+                <br />
+                <div class="form-group">
+                    <input type="submit" value="Направи резерация" class="btn btn-primary my-text-transform form-control" name="submit_all_form">
+                </div>
+ 
             </div>
             <!-- END -->
 
         </div>
 
     </form>
+    <?php
+
+        echo "<div class='load_center'>";
+            echo "<div class='wave'></div>";
+            echo "<div class='wave'></div>";
+            echo "<div class='wave'></div>";
+            echo "<div class='wave'></div>";
+            echo "<div class='wave'></div>";
+            echo "<div class='wave'></div>";
+            echo "<div class='wave'></div>";
+            echo "<div class='wave'></div>";
+            echo "<div class='wave'></div>";
+            echo "<div class='wave'></div>";
+        echo "</div>";
+
+    ?>
+
 </div>
 
 <!----modal starts here--->
@@ -97,6 +130,29 @@
 <!--Modal ends here--->
 
 <script type="text/javascript">
+    let income_input = document.getElementById("income_date");
+        let outcome_input = document.getElementById("outcome_date");
+        
+        income_input.addEventListener("click", function () {
+            income_input.showPicker()
+        });
+
+        outcome_input.addEventListener("click", function () {
+            outcome_input.showPicker()
+        });
+
+    var $wave = $(".wave").hide();
+    var $loader = $(".load_center").hide();
+
+    $(document)
+    .ajaxStart(function () {
+        $loader.show();
+        $wave.show();
+    })
+    .ajaxStop(function () {
+        $wave.hide();
+        $loader.hide();
+    });
 </script>
 </body>
 </html>
