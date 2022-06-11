@@ -19,7 +19,8 @@
 
 <div class="glob_container">
     <h3>Форма за резервация</h3>
-    <form action="result.php" method='POST'>
+
+    <form action="result.php" method='POST' name="total_form">
 
     <!-- Checking for free room about date to income and going -->
         <div class="form-group">
@@ -128,6 +129,19 @@
 <script type="text/javascript">
 
     $('form').submit(function() {
+        let income = document.getElementById("income_date").value
+        let people_name = document.getElementById("person_name").value
+
+        if (income == "") {
+            alert("Въведете дата на пристигане")
+            return false;
+        }
+
+        if (people_name == "") {
+            alert("Въведете име")
+            return false;
+        }
+        
         if (parseInt($('input[name="random_num"]').val()) == parseInt($('input[name="human_number"]').val())) {
             return true;
         }
@@ -139,15 +153,15 @@
 
 
     let income_input = document.getElementById("income_date");
-        let outcome_input = document.getElementById("outcome_date");
-        
-        income_input.addEventListener("click", function () {
-            income_input.showPicker()
-        });
+    let outcome_input = document.getElementById("outcome_date");
+    
+    income_input.addEventListener("click", function () {
+        income_input.showPicker()
+    });
 
-        outcome_input.addEventListener("click", function () {
-            outcome_input.showPicker()
-        });
+    outcome_input.addEventListener("click", function () {
+        outcome_input.showPicker()
+    });
 
     var $wave = $(".wave").hide();
     var $loader = $(".load_center").hide();

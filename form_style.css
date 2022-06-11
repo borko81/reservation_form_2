@@ -1,9 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500;600;800&family=VT323&display=swap');
+
 :root {
-    --free_rooms_result: #48cfad;
+    --free_rooms_result: #d1dedd;
 }
 
 body {
     background-color: var(--free_rooms_result) !important;
+    font-family: "Poppins" !important;
+}
+
+h1,h2,h3 {
+  color: #767f7e !important;
+}
+
+p {
+  color: #828b8a !important;
 }
 
 .glob_container {
@@ -22,10 +33,14 @@ body {
 .free_in_grid_system {
     display: grid;
     width: 100%;
+    margin: 0 auto;
     grid-gap:10px;
     grid-template-columns: 1fr 1fr 1fr;
 }
 
+.card {
+  width: 250px !important;
+}
 
 .modal-borko {
   display: none; /* Hidden by default */
@@ -140,4 +155,25 @@ body {
 
 .common_information:hover {
   cursor: pointer;
+}
+
+@media screen and (max-width: 980px) {
+  .free_in_grid_system {
+    grid-column: span 3;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+  .card {
+    width: 200px !important;
+    height: 140px !important;
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .free_in_grid_system {
+    display: block;
+    margin: 0 20px;
+  }
 }
