@@ -46,7 +46,7 @@
         <br />
         <!-- Show what system found  -->
         <div class="form-group free_rooms">
-            <h5>Свободни помещение</h5>
+            <h5>Свободни помещения</h5>
  
 
                 <?php
