@@ -17,6 +17,31 @@ p {
   color: #828b8a !important;
 }
 
+.author_logo h3 {
+	color: #636363;
+	margin: 0 0 15px;
+	position: relative;
+	text-align: center;
+  text-transform: uppercase;
+}
+
+.author_logo h3:before, .author_logo h3:after {
+  content: "";
+  height: 2px;
+  width: 30%;
+  background: #636363;
+  position: absolute;
+  top: 50%;
+  z-index: 1;
+}
+
+.author_logo h3:before {
+	left: 0;
+}
+.author_logo h3:after {
+	right: 0;
+}
+
 .glob_container {
   width: 50%;
   margin: 10px auto;
@@ -32,7 +57,7 @@ p {
 
 .free_in_grid_system {
     display: grid;
-    width: 100%;
+    width: 90%;
     margin: 0 auto;
     grid-gap:10px;
     grid-template-columns: 1fr 1fr 1fr;
@@ -155,6 +180,22 @@ p {
 
 .common_information:hover {
   cursor: pointer;
+}
+
+.form-group {
+  position: relative;
+}
+
+.form-group i{
+  position: absolute;
+  left: 13px;
+  top: 35px;
+  font-size: 18px;
+  
+}
+
+.left_padding {
+  padding-left: 40px !important;
 }
 
 @media screen and (max-width: 980px) {

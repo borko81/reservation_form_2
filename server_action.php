@@ -63,7 +63,7 @@
                         echo     "<div class='card-body'>";
                         echo         "<h5 class='card-title'>$room_tipe</h5>";
                         echo         "<h6 class='card-subtitle mb-2 text-muted'>Сума  $price лв</h6>";
-                        echo         "<a href='#' class='card-link' id=$room_id onclick='showModal(this.id)'>Галерия</a>&nbsp;&nbsp;&nbsp;Избор:&nbsp;<input type='radio' name='room_choice_radio' value=$name_and_id' onclick='when_radio_is_clicked();'>";
+                        echo         "<a href='#' class='card-link' id=$room_id onclick='showModal(this.id)'>галерия</a>&nbsp;&nbsp;&nbsp;Избор:&nbsp;<input type='radio' name='room_choice_radio' value=$name_and_id' onclick='when_radio_is_clicked();'>";
                         echo     "</div>";
                         echo "</div>";
                     }

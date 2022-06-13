@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="form_style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous">
     </script>
   <script src=check_for_free.js></script>
@@ -18,7 +19,9 @@
 
 
 <div class="glob_container">
-    <h3>Форма за резервация</h3>
+    <div class="author_logo">
+        <h3>Форма за резервация</h3>
+    </div>
 
     <form action="result.php" method='POST' name="total_form">
 
@@ -46,11 +49,12 @@
         <br />
         <!-- Show what system found  -->
         <div class="form-group free_rooms">
-            <h5>Свободни помещения</h5>
+            <!-- <h5>Свободни помещения</h5> -->
  
 
                 <?php
-                  echo "<div class='free_in_grid_system' id='msg'></div>";
+                    echo "<h5>Свободни помещения</h5>";
+                    echo "<div class='free_in_grid_system' id='msg'></div>";
                 ?>
 
             <!-- END  -->
@@ -58,25 +62,29 @@
             <br />
             <!-- Need person information -->
             <div class="person_info">
-                <h5>Данни за госта</h5>
+                <!-- <h5>Данни за госта</h5> -->
                 <div class="form-group">
-                    <label for="person_name">Име и Фамилия</label>
-                    <input type="text" class="form-control" id="person_name" name="person_name" required>
+                    <label for="person_name"></label>
+                    <i class="fa fa-user"></i>
+                    <input type="text" class="form-control left_padding" id="person_name" name="person_name" required placeholder='Име и Фамилия'>
                 </div>
 
                 <div class="form-group">
-                    <label for="person_tel">Телефон</label>
-                    <input type="text" class="form-control" id="person_tel" name='person_tel' required>
+                    <label for="person_tel"></label>
+                    <i class="fa fa-phone"></i>
+                    <input type="text" class="form-control left_padding" id="person_tel" name='person_tel' required placeholder="Телефон">
                 </div>
 
                 <div class="form-group">
-                    <label for="person_email">Email</label>
-                    <input type="text" class="form-control" id="person_email" name='person_email' required>
+                    <label for="person_email"></label>
+                    <i class="fa fa-envelope"></i>
+                    <input type="text" class="form-control left_padding" id="person_email" name='person_email' required placeholder='Email'>
                 </div>
 
                 <div class="form-group">
-                    <label for="person_note">Забележка</label>
-                    <textarea id="person_note" class="form-control" name='person_note'></textarea>
+                    <label for="person_note"></label>
+                    <i class="fa fa-sticky-note-o"></i>
+                    <textarea id="person_note" class="form-control left_padding" name='person_note' placeholder='Забележка'></textarea>
                 </div>
 
                 <br />
@@ -86,7 +94,7 @@
                 </div>
                 <br />
                 <div class="form-group">
-                    <input type="submit" value="Направи резерация" class="btn btn-primary my-text-transform form-control" name="submit_me">
+                    <input type="submit" value="напред" class="btn btn-primary my-text-transform form-control" name="submit_me">
                 </div>
  
             </div>
