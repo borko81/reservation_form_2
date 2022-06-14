@@ -54,7 +54,7 @@ session_start();
 
     <?php
     
-        # var_dump($_SESSION);
+        // var_dump($_POST);
 
         function data_is_not_null($variable) {
             if ((isset($variable)) && (!empty($variable))) {
@@ -100,19 +100,29 @@ session_start();
                 }
             }
 
+            $arrival = $_SESSION['income_date'];
+            $departure = $_SESSION['outcome_date'];
+            $guestName = $_SESSION['name'];
+            $phoneNumber = $_SESSION['tel'];
+            $emailAddress = $_SESSION['email'];
+            $note = $_SESSION['note'];
+            $room_id = $_SESSION['room_id'];
+            $room_tip = $_SESSION['room_tip'];
+            $child_count_for_potv = sizeof($child_count);
+
             $data = array(
-                "arrival"=> $_SESSION['income_date'],
-                "departure"=> $_SESSION['outcome_date'],
-                "guestName"=> $_SESSION['name'],
-                "phoneNumber"=> $_SESSION['tel'],
-                "emailAddress"=> $_SESSION['email'],
-                "note"=> substr(preg_replace("/\"/","'",htmlspecialchars(trim($_SESSION['note']))), 0, 150),
+                "arrival"=> $arrival,
+                "departure"=> $departure,
+                "guestName"=> $guestName,
+                "phoneNumber"=> $phoneNumber,
+                "emailAddress"=> $emailAddress,
+                "note"=> substr(preg_replace("/\"/","'",htmlspecialchars(trim($note))), 0, 150),
                 "paymentType"=> 0,
                 "referenceNumber"=> "string",
                 "rooms"=> [
                 
                     array(
-                        "roomTypeId"=> $_SESSION['room_id'],
+                        "roomTypeId"=> $room_id,
                         "adults"=> $adult,
                         "boardTypeId"=> null,
                         "childrenAge"=> $child_count
@@ -133,6 +143,11 @@ session_start();
                     echo    "<div class='modal-content'>";
                     echo        "<span class='close'>&times;</span>";
                     echo        "<p>Успешно направена резерация с номер :  $RES_ID очакваите потвърждение от наш служител</p>";
+                    echo        "Име $guestName , телефон: $phoneNumber, email: $emailAddress<br />";
+                    echo        "Брои на гостите: възрастни: $adult, деца: $child_count_for_potv<br />";
+                    echo        "Избрани дати. Пристига: $arrival, отпътува: $departure<br />";
+                    echo        "Избран тип помещение: $room_tip<br />";
+                    echo        "<input  type='button' value='Print this Page' onclick='window.print();'>";
                     echo     "</div>";
     
                     echo "</div>";
