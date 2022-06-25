@@ -22,6 +22,19 @@
 
 
         if(!empty($income) && !empty($outcome) && !empty($people)) {
+
+            $connection = mysqli_connect('localhost', 'root', '', 'mysql') or die("Database connection not establish");
+            $result = mysqli_query($connection, "select message FROM stop_period where '$income' between first_date and second_date or '$outcome' between first_date and second_date") or die ("Error acquire");
+
+            $rowCount = mysqli_num_rows($result);
+
+            if ($rowCount) {
+                foreach($result as $mess) {
+                    echo $mess['message'];
+                }
+                return;
+            }
+
             $SITE_URL .= 'Arrival=' . $income;
             $SITE_URL .= '&Departure=' . $outcome;
             
