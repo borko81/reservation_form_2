@@ -1,0 +1,11 @@
+CREATE TABLE `unreal_users` (
+  `id` int(11) NOT NULL Auto Increment,
+  `email` varchar(50) NOT NULL,
+  `password` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `stop_period` (
+      `id` int(11) NOT NULL Auto Increment,
+      `first_date` varchar(100),
+      `second_date` varchar(100),
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
