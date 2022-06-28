@@ -136,6 +136,9 @@ session_start();
 
                 if (isset($php_readable_data['bookingId']) && (!empty($php_readable_data['bookingId']))) {
                     $RES_ID = $php_readable_data['bookingId'];
+                    if ($_SESSION['reload_page'] == 'borko') {
+                        header("Location: index.php"); 
+                    }
                     $_SESSION["reload_page"] = "borko";
 
                     echo "<div id='myModal' class='modal'>";
@@ -148,6 +151,7 @@ session_start();
                     echo        "Избрани дати. Пристига: $arrival, отпътува: $departure<br />";
                     echo        "Избран тип помещение: $room_tip<br />";
                     echo        "<input  type='button' value='Print this Page' onclick='window.print();'>";
+                    echo        "<button onclick=\"location.href='index.php'\">Back to Home</button>";
                     echo     "</div>";
     
                     echo "</div>";

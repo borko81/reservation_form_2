@@ -1,5 +1,6 @@
 <?php
   session_start();
+  $_SESSION["reload_page"] = '';
 ?>
 
 <!DOCTYPE html>
@@ -31,6 +32,8 @@
             <select id="human_count" class="form-control" name='human_count'>
                 <option value="2">Възрастни 2</option>
                 <option value="3">Възрастни 3</option>
+                <option value="3:6">Възрастни 2 дете 1 до 6г</option>
+                <option value="3:12">Възрастни 2 дете 1 до 12г</option>
             </select>
         </div>
 
