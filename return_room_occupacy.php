@@ -13,6 +13,21 @@
             border: 1px solid black;
             border-collapse: collapse;
         }
+        td a {
+            width: 100%;
+            display: block;
+        }
+        th:first-child {
+            font-size: 1rem;
+            text-align: left;
+        }
+        th {
+            font-size: .8rem;
+            text-align: center;
+        }
+        td:first-child {
+            font-size: .8rem;
+        }
         td, th {
             width: 90px !important;
             height: 50px !important;
@@ -50,7 +65,9 @@
         $datetime = new DateTime();
         $array_assoc_search_for_free = array(
             3=>[2, 'Апартамент Superior'],
-            4=>[1, 'Апартамент ВИП']
+            4=>[1, 'Апартамент ВИП'],
+            6=>[2, 'Студио'],
+            7=>[1, 'Апартамент RО']
         );
 
 
@@ -70,7 +87,7 @@
         echo "<tr>";
         echo "<th>Дати</th>";
         for($i=0;$i<=$HOW_DAY_TO_CHECK;$i++) {
-            $tomorow = date('Y-m-d', strtotime("now + " . $i ."day"));
+            $tomorow = date('d.m.Y', strtotime("now + " . $i ."day"));
             echo "<th>$tomorow</th>";
         }
         echo "</tr>";
@@ -81,7 +98,7 @@
 
             for($day=0;$day<=$HOW_DAY_TO_CHECK;$day++) {
                 $day_to_check = date('Y-m-d', strtotime("now + " . $day ."day"));
-                $return_in_table = "<td class='free_room'></td>";
+                $return_in_table = "<td class='free_room'><a href='index.php'><div style='width:1em; height:1em; display:inline-block'></div></a></td>";
 
                 for($i=0;$i<sizeof($data);$i++) {
                     if(
