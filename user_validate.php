@@ -47,7 +47,7 @@
 
         if (check_user_exists_in_db($_SESSION["user_email"], $_SESSION["user_password"])) {
             $_SESSION['validate_user_is_ok'] = 1;
-            header('Location: work_with_periods.php');
+            header('Location: index.php');
         }
 
     }

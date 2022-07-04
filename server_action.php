@@ -1,5 +1,9 @@
 <?php
     session_start();
+    include 'lib.php';
+    if (!isset($_SESSION['validate_user_is_ok'])) {
+        header('Location: user_validate.php');
+    }
 ?>
 
 <?php include 'const.php'; ?>
@@ -50,12 +54,19 @@
 
             $SITE_URL .= "&token=$TOKEN";
 
-            // echo $SITE_URL;
+            $log = new MyLog();
+            $msg = array("Arrival"=> $income, "Departure"=> $outcome, "People" => $people);
+            
+
+            //echo $SITE_URL;
             
             // Send data to API
             $cURLConnection = curl_init();
                 curl_setopt($cURLConnection, CURLOPT_URL, $SITE_URL);
                 curl_setopt($cURLConnection, CURLOPT_RETURNTRANSFER, true);
+                // curl_setopt($cURLConnection, CURLOPT_CAINFO,  getcwd().'cacert.pem');
+                // curl_setopt($cURLConnection, CURLOPT_SSLCERT,  getcwd().'cacert.pem');
+                // curl_setopt($cURLConnection, CURLOPT_SSLCERTPASSWD,  '1234');
                 $result = curl_exec($cURLConnection);
                 curl_close($cURLConnection);
                 $result_php = json_decode($result, true);
@@ -79,9 +90,15 @@
                         echo         "<a href='#' class='card-link' id=$room_id onclick='showModal(this.id)'>галерия</a>&nbsp;&nbsp;&nbsp;Избор:&nbsp;<input type='radio' name='room_choice_radio' value=$name_and_id' onclick='when_radio_is_clicked();'>";
                         echo     "</div>";
                         echo "</div>";
-                    }
-                }
+                    
+                    $msg["Result"] = $result_php;
+                    
+                    }   
+                } 
+        // write result in file only if result return valid data!!!!!!!!!!!!!!!!!!
+        $log->write($msg);
         }
+            
     ?>
 <script>
     if ( window.history.replaceState ) {
