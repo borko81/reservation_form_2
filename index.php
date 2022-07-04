@@ -21,8 +21,13 @@
 
 
 <div class="glob_container">
+        <!-- <ul>
+            <li><a href="return_room_occupacy.php">Проверка за свободни помещения</a></li>
+        </ul> -->
+
     <div class="author_logo">
         <h3>Форма за резервация</h3>
+        <span class="center_span"><a href="return_room_occupacy.php" class="link-secondary">Може да проверите заетостта. Или изберете конкретни дати.</a></span>
     </div>
 
     <form action="result.php" method='POST' name="total_form">
@@ -49,6 +54,7 @@
             <input type="date" class="form-control" id="outcome_date" name='outcome_date'>
         </div>
 
+        
         <!-- END -->
 
         <br />
