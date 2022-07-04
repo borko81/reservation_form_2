@@ -1,5 +1,8 @@
 <?php
 session_start();
+if (!isset($_SESSION['validate_user_is_ok'])) {
+  header('Location: user_validate.php');
+}
 ?>
 
 <!DOCTYPE html>

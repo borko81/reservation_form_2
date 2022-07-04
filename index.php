@@ -1,6 +1,10 @@
 <?php
   session_start();
   $_SESSION["reload_page"] = '';
+  include 'lib.php';
+  if (!isset($_SESSION['validate_user_is_ok'])) {
+    header('Location: user_validate.php');
+  }
 ?>
 
 <!DOCTYPE html>
@@ -29,7 +33,9 @@
 
     <!-- Checking for free room about date to income and going -->
         <div class="form-group">
-            <label for="human_count">Брои гости</label>
+        <div class="clearfix">
+            <label for="human_count" class="pull-left">Брои гости</label><span class="pull-right"><a href="logout.php">Logout</a></span>
+        </div>
             <select id="human_count" class="form-control" name='human_count'>
                 <option value="2">Възрастни 2</option>
                 <option value="3">Възрастни 3</option>
