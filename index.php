@@ -43,11 +43,22 @@
             </select>
         </div>
 
-        <div class="form-group">
-            <label for="income_date">Дата на пристигане</label>
-            <input type="date" class="form-control" id="income_date" name='income_date'>
+        <?php
+            if(isset($_GET['income']))
             
-        </div>
+            {
+                $in = $_GET['income'];
+                echo "<div class='form-group'>";
+                echo     "<label for='income_date'>Дата на пристигане</label>";
+                echo     "<input type='date' class='form-control' id='income_date' name='income_date' value=$in min=$in>";
+                echo "</div>";
+            } else {
+                echo "<div class='form-group'>";
+                echo     "<label for='income_date'>Дата на пристигане</label>";
+                echo     "<input type='date' class='form-control' id='income_date' name='income_date'>";
+                echo "</div>";
+            }
+        ?>
 
         <div class="form-group">
             <label for="outcome_date">Дата на отпътуване</label>
@@ -161,14 +172,18 @@
     if(mm<10){
     mm='0'+mm
     } 
+    if(tommorow_day<10) {
+        tommorow_day='0'+tommorow_day
+    }
 
     today = yyyy+'-'+mm+'-'+dd;
     tommorow = yyyy+'-'+mm+'-'+tommorow_day;
-
-    document.getElementById('income_date').valueAsDate = date;
-    document.getElementById("income_date").setAttribute("min", today);
-
-    document.getElementById("outcome_date").setAttribute("min", tommorow);
+    
+    if (document.getElementById('income_date').value == '') {
+        document.getElementById('income_date').valueAsDate = date;
+        document.getElementById("income_date").setAttribute("min", today);
+        document.getElementById("outcome_date").setAttribute("min", tommorow);
+    }
 
     $('form').submit(function() {
         let income = document.getElementById("income_date").value

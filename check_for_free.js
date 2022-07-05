@@ -2,7 +2,13 @@ function all_field_is_not_empty() {
     let income = $("#income_date").val()
     let outcome = $("#outcome_date").val()
     let humans = $("#human_count").val()
+
+    if (income && outcome && humans && (income > outcome)) {
+        alert('Отпътуване трябва да бъде преди притигане.')
+    }
+
     if (income && outcome && humans && (income < outcome)) {
+        
         $(".free_rooms").fadeIn(1000)
         
         if (income && outcome && humans) {

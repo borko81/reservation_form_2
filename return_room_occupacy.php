@@ -44,6 +44,8 @@
 <body>
     <div class="container">
     <?php
+        session_start();
+        
         include 'const.php';
         // Get data for room id and name/ TODO: need total rooms by type to remove something here!!!!!!!!
 
@@ -98,7 +100,8 @@
 
             for($day=0;$day<=$HOW_DAY_TO_CHECK;$day++) {
                 $day_to_check = date('Y-m-d', strtotime("now + " . $day ."day"));
-                $return_in_table = "<td class='free_room'><a href='index.php'><div style='width:1em; height:1em; display:inline-block'></div></a></td>";
+                $return_in_table = "<td class='free_room'><a href='index.php?income=$day_to_check'><div style='width:1em; height:1em; display:inline-block'></div></a></td>";
+                
 
                 for($i=0;$i<sizeof($data);$i++) {
                     if(
